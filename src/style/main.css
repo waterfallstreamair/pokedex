@@ -5,16 +5,16 @@ body {
   padding: 0;
 }
 
-.page {
+.list {
   position: relative;
   text-align: center;
 }
 
-.page__search {
+.list__search {
   padding-top: 10px;
 }
 
-.page__error {
+.list__error {
   position: absolute;
   padding: 5px;
   color: #fff;

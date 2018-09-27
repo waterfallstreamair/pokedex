@@ -1,8 +1,11 @@
+import { connect } from 'react-redux'
+import * as listActions from '../redux/actions/listActions'
+
 import React, { Component } from 'react'
 import Pokemon from '../components/pokemon'
 import Search from '../components/search'
 
-class Page extends Component {
+class ListPage extends Component {
   componentDidMount() {
     this.props.getPokemons()
   }
@@ -23,9 +26,9 @@ class Page extends Component {
     })
 
     return (
-      <div className="page">
-        {error && <div className="page__error">{error}</div>}
-        <div className="page__search">
+      <div className="list">
+        {error && <div className="list__error">{error}</div>}
+        <div className="list__search">
           <Search onChange={this.handleSearch.bind(this)} />
         </div>
         {isFetched ? (
@@ -38,4 +41,22 @@ class Page extends Component {
   }
 }
 
-export default Page
+function mapStateToProps(state) {
+  const { displayedPokemons, isFetched, error } = state.list
+
+  return {
+    displayedPokemons,
+    isFetched,
+    error
+  }
+}
+
+const mapDispatchToProps = {
+  getPokemons: listActions.getPokemons,
+  filterPokemons: listActions.filterPokemons
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListPage)

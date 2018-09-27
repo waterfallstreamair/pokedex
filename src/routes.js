@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import Page from './containers/page'
+import ListPage from './pages/ListPage'
 
 /*
  @see https://github.com/supasate/connected-react-router/blob/master/FAQ.md
@@ -8,7 +8,7 @@ import Page from './containers/page'
 const routes = (
   <div>
     <Switch>
-      <Route exact path="/" component={Page} />
+      <Route exact path="/" component={ListPage} />
     </Switch>
   </div>
 )

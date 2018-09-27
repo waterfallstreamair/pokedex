@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import page from './page'
+import list from './listReducer'
 
 export default combineReducers({
-  page
+  list
 })

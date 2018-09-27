@@ -4,7 +4,7 @@ import {
   GET_POKEMONS_FAIL,
   SET_POKEMONS,
   FILTER_POKEMONS
-} from '../constants/page'
+} from '../constants/listConstants'
 
 function setPokemons(data) {
   const pokemons = data.results.map(pokemon => {
@@ -52,7 +52,7 @@ export function getPokemons() {
 
 export function filterPokemons(searchString = '') {
   return (dispatch, getState) => {
-    const displayedPokemons = getState().page.pokemons.filter(pokemon => {
+    const displayedPokemons = getState().list.pokemons.filter(pokemon => {
       return pokemon.name.includes(searchString.toLowerCase())
     })
 

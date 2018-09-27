@@ -4,7 +4,7 @@ import {
   GET_POKEMONS_FAIL,
   SET_POKEMONS,
   FILTER_POKEMONS
-} from '../constants/page'
+} from '../constants/listConstants'
 
 const initialState = {
   isFetched: false,
