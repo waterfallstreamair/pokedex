@@ -19,3 +19,17 @@
   margin: 0;
   padding: 0;
 }
+
+.pokemon__sprite__info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  border: none;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 200px;
+}

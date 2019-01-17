@@ -14,10 +14,18 @@ class ItemPage extends Component {
       <div className="item">
         {error && <div className="item__error">{error}</div>}
         <div className="item__title">Pokemon details</div>
+        <div
+          className="pokemon__sprite__info"
+          style={{
+            backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              this.props.match.params.id
+            }.png`})`
+          }}
+        />
         {isFetched ? (
           <p>Loading...</p>
         ) : (
-          <ul className="details">
+          <ul className="info">
             <li>Pokemon id {this.props.match.params.id}</li>
             <li>Name: {info.name}</li>
           </ul>
