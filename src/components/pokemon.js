@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react'
 
 class Pokemon extends PureComponent {
   render() {
-    const { pokemon } = this.props
+    const { pokemon, onClick } = this.props
 
     return (
-      <div className="pokemon">
+      <div className="pokemon" onClick={onClick}>
         <button
           type="button"
           className="pokemon__sprite"

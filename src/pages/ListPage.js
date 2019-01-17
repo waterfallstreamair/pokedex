@@ -14,13 +14,20 @@ class ListPage extends Component {
     this.props.filterPokemons(event.currentTarget.value)
   }
 
+  handleClick(pokemon) {
+    this.props.history.push(`/pokemon/${pokemon.id}`)
+  }
+
   render() {
     let { displayedPokemons, isFetched, error } = this.props
 
     let pokemons = displayedPokemons.map(pokemon => {
       return (
         <li className="pokemons__item" key={pokemon.id}>
-          <Pokemon pokemon={pokemon} />
+          <Pokemon
+            pokemon={pokemon}
+            onClick={event => this.handleClick(pokemon)}
+          />
         </li>
       )
     })
