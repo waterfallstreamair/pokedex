@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
   GET_ITEM_REQUEST,
   GET_ITEM_SUCCESS,
@@ -18,25 +19,13 @@ export function getItem(id) {
       type: GET_ITEM_REQUEST
     })
 
-    return fetch(`https://pokeapi.co/api/v2/stat/${id}`, {
-      mode: 'no-cors',
-      credentials: 'include',
-      headers: {
-        'access-control-allow-origin': '*'
-      }
-    })
+    return axios
+      .get(`https://pokeapi.co/api/v2/stat/${id}`)
       .then(response => {
-        if (response.ok) {
-          return response.json()
-        }
-
-        throw new Error(`${response.status}: ${response.statusText}`)
-      })
-      .then(data => {
         dispatch({
           type: GET_ITEM_SUCCESS
         })
-        console.log({ data })
+        const { data } = response
         dispatch(setItem(data))
       })
       .catch(error => {
