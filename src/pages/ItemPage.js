@@ -4,11 +4,12 @@ import * as itemActions from '../redux/actions/itemActions'
 import React, { Component } from 'react'
 
 class ItemPage extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getItem(this.props.match.params.id)
+  }
 
   render() {
-    const error = false
-    const isFetched = false
+    const { error, isFetched, info } = this.props
     return (
       <div className="item">
         {error && <div className="item__error">{error}</div>}
@@ -16,16 +17,29 @@ class ItemPage extends Component {
         {isFetched ? (
           <p>Loading...</p>
         ) : (
-          <ul className="details">Pokemon id {this.props.match.params.id}</ul>
+          <ul className="details">
+            <li>Pokemon id {this.props.match.params.id}</li>
+            <li>Name: {info.name}</li>
+          </ul>
         )}
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {}
+function mapStateToProps(state) {
+  const { info, isFetched, error } = state.item
 
-const mapDispatchToProps = {}
+  return {
+    info,
+    isFetched,
+    error
+  }
+}
+
+const mapDispatchToProps = {
+  getItem: itemActions.getItem
+}
 
 export default connect(
   mapStateToProps,

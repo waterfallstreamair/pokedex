@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import rootReducer from './redux/reducers'
 import './style/main.css'
+import './style/item.css'
 
 const history = createBrowserHistory()
 

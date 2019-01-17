@@ -1,0 +1,21 @@
+.item {
+  position: relative;
+  text-align: center;
+}
+
+.item__title {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.item__error {
+  position: absolute;
+  padding: 5px;
+  color: #fff;
+  background-color: #f44336;
+}
+
+.info {
+  margin: 0;
+  padding: 0;
+}
